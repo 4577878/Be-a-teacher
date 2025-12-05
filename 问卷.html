@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>学生上课意愿征集表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .page {
+            max-width: 414px;
+            margin: 0 auto;
+            min-height: 100vh;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            height: 56px;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 0 16px;
+        }
+
+        .back-arrow {
+            font-size: 20px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .title {
+            flex: 1;
+            text-align: center;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        form {
+            padding: 16px 24px 80px;
+        }
+
+        .question {
+            margin-bottom: 24px;
+        }
+
+        .question-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .question-sub {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .options-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .option-pill {
+            position: relative;
+            font-size: 13px;
+        }
+
+        .option-pill input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .option-pill label {
+            display: block;
+            padding: 6px 4px;
+            text-align: center;
+            border-radius: 16px;
+            border: 1px solid #d9d9d9;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            user-select: none;
+        }
+
+        .option-pill input:checked + label {
+            border-color: #1677ff;
+            background-color: #e6f4ff;
+            color: #1677ff;
+        }
+
+        .options-list {
+            margin-top: 6px;
+        }
+
+        .options-list .item {
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .options-list input {
+            margin-right: 6px;
+        }
+
+        .select-wrapper {
+            margin-top: 8px;
+        }
+
+        select {
+            width: 100%;
+            height: 32px;
+            border-radius: 4px;
+            border: 1px solid #d9d9d9;
+            padding: 0 8px;
+            font-size: 14px;
+        }
+
+        .textarea-wrapper {
+            margin-top: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 40px;
+            border-radius: 4px;
+            border: 1px solid #d9d9d9;
+            padding: 6px 8px;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .footer {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 16px;
+            width: 100%;
+            max-width: 414px;
+            padding: 0 24px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            background-color: #1677ff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:active {
+            background-color: #145fcd;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- 顶部栏 -->
+    <div class="header">
+        <a href="选择.html" style="text-decoration:none; color:inherit;">
+            <span class="back-arrow">←</span>
+        </a>
+        <div class="title">学生上课意愿征集表</div>
+    </div>
+
+    <form>
+        <!-- 1. 兴趣标签 -->
+        <div class="question">
+            <div class="question-title">1、你感兴趣的选修课领域标签有哪些？</div>
+            <div class="question-sub">(可从以下选项勾选，也可在“其他”处补充)</div>
+            <div class="options-group">
+                <div class="option-pill">
+                    <input type="checkbox" id="tag1" name="tags" value="专业技能" checked>
+                    <label for="tag1">专业技能</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag2" name="tags" value="音乐舞蹈">
+                    <label for="tag2">音乐舞蹈</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag3" name="tags" value="健康管理">
+                    <label for="tag3">健康管理</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag4" name="tags" value="自然科学">
+                    <label for="tag4">自然科学</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag5" name="tags" value="学习语言">
+                    <label for="tag5">学习语言</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag6" name="tags" value="休闲娱乐">
+                    <label for="tag6">休闲娱乐</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag7" name="tags" value="艺术创作">
+                    <label for="tag7">艺术创作</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag8" name="tags" value="跨界融合">
+                    <label for="tag8">跨界融合</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag9" name="tags" value="生活治理">
+                    <label for="tag9">生活治理</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag10" name="tags" value="人文社科">
+                    <label for="tag10">人文社科</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag11" name="tags" value="文化体验">
+                    <label for="tag11">文化体验</label>
+                </div>
+                <div class="option-pill">
+                    <input type="checkbox" id="tag12" name="tags" value="户外实践">
+                    <label for="tag12">户外实践</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. 课程形式 -->
+        <div class="question">
+            <div class="question-title">2、你偏好的课程形式是（可多选）？</div>
+            <div class="options-list">
+                <div class="item">
+                    <input type="checkbox" id="type1" name="type" value="线下集中授课" checked>
+                    <label for="type1">线下集中授课</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="type2" name="type" value="线上直播">
+                    <label for="type2">线上直播</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="type3" name="type" value="线上录播">
+                    <label for="type3">线上录播</label>
+                </div>
+                <div class="item">
+                    <input type="checkbox" id="type4" name="type" value="线上+线下结合">
+                    <label for="type4">线上+线下结合</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 任务形式 -->
+        <div class="question">
+            <div class="question-title">3、若课程有布置任务，你希望任务形式更偏向哪种？</div>
+            <div class="select-wrapper">
+                <select name="taskType">
+                    <option value="轻量化任务">轻量化任务</option>
+                    <option value="实践类任务">实践类任务</option>
+                    <option value="研究类任务">研究类任务</option>
+                    <option value="小组任务">小组任务</option>
+                    <option value="展示分享">展示分享</option>
+                    <option value="自定义考核">自定义考核</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- 4. 投入时间 -->
+        <div class="question">
+            <div class="question-title">4、你期望为单门选修课投入的时间约为多少？</div>
+            <div class="question-sub">(每次上课、课后练习)</div>
+            <div class="textarea-wrapper">
+                <textarea name="time" placeholder=""></textarea>
+            </div>
+        </div>
+
+        <!-- 5. 期望效果 -->
+        <div class="question">
+            <div class="question-title">5、你希望通过选修课达成的短期/长期效果有哪些？</div>
+            <div class="question-sub">(可补充具体期望)</div>
+            <div class="textarea-wrapper">
+                <textarea name="effect"></textarea>
+            </div>
+        </div>
+
+        <!-- 6. 其他需求 -->
+        <div class="question">
+            <div class="question-title">6、你对选修课还有哪些其他需求？</div>
+            <div class="question-sub">(如课程形式、考核方式、师资要求等)</div>
+            <div class="textarea-wrapper">
+                <textarea name="other"></textarea>
+            </div>
+        </div>
+    </form>
+
+    <div class="footer">
+        <button type="submit" class="submit-btn">提交</button>
+    </div>
+</div>
+</body>
+</html>
+```
+

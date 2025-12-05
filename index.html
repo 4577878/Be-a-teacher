@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>学生开课意愿征集表</title>
+    <title>学生开课活动征集表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -23,7 +23,6 @@
             background-color: #ffffff;
             box-shadow: 0 0 10px rgba(0,0,0,0.05);
             position: relative;
-            padding-bottom: 40px;
         }
 
         .header {
@@ -37,7 +36,6 @@
         .back-arrow {
             font-size: 20px;
             margin-right: 8px;
-            cursor: default;
         }
 
         .title {
@@ -47,200 +45,56 @@
             font-weight: 600;
         }
 
-        form {
-            padding: 16px 24px 80px;
-        }
-
-        .question {
-            margin-bottom: 22px;
-        }
-
-        .question-title {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .question-sub {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .input-wrapper {
-            margin-top: 4px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            height: 32px;
-            border-radius: 4px;
-            border: 1px solid #d9d9d9;
-            padding: 4px 8px;
-            font-size: 14px;
-        }
-
-        .select-wrapper {
-            margin-top: 6px;
-        }
-
-        select {
-            width: 100%;
-            border-radius: 4px;
-            border: 1px solid #d9d9d9;
-            padding: 4px 8px;
-            font-size: 14px;
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 40px;
-            border-radius: 4px;
-            border: 1px solid #d9d9d9;
-            padding: 6px 8px;
-            font-size: 14px;
-            resize: vertical;
-        }
-
-        .upload-box {
-            margin-top: 8px;
-            width: 120px;
-            height: 120px;
-            border-radius: 4px;
-            border: 1px dashed #d9d9d9;
+        .content {
+            padding: 60px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 13px;
+            gap: 32px;
         }
 
-        .upload-plus {
-            font-size: 26px;
-            margin-bottom: 4px;
-        }
-
-        .footer {
-            position: fixed;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: 16px;
-            width: 100%;
-            max-width: 414px;
-            padding: 0 24px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            height: 40px;
-            border-radius: 20px;
+        .btn {
+            width: 220px;
+            height: 60px;
+            border-radius: 6px;
             border: none;
-            background-color: #1677ff;
-            color: white;
-            font-size: 16px;
+            font-size: 20px;
+            color: #ffffff;
             cursor: pointer;
         }
 
-        .submit-btn:active {
-            background-color: #145fcd;
+        .btn-teacher {
+            background-color: #008cd6;
+        }
+
+        .btn-student {
+            background-color: #e00000;
+        }
+
+        .btn:active {
+            opacity: 0.85;
+        }
+
+        a {
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 <div class="page">
-    <!-- 顶部栏 -->
     <div class="header">
-        <a href="选择.html" style="text-decoration:none; color:inherit;">
-            <span class="back-arrow">←</span>
-        </a>
-        <div class="title">学生开课意愿征集表</div>
+        <span class="back-arrow">←</span>
+        <div class="title">学生开课活动征集表</div>
     </div>
 
-    <form>
-        <!-- 1. 课程主题/领域 -->
-        <div class="question">
-            <div class="question-title">1、你计划开设的课程主题/领域：</div>
-            <div class="question-sub">(请明确具体方向，避免模糊表述)</div>
-            <div class="input-wrapper">
-                <input type="text" name="courseTopic">
-            </div>
-        </div>
-
-        <!-- 2. 总学时数 -->
-        <div class="question">
-            <div class="question-title">2、你预计的课程总学时数（单节课按 45 分钟计）：</div>
-            <div class="input-wrapper">
-                <input type="text" name="totalHours">
-            </div>
-        </div>
-
-        <!-- 3. 教学形式 -->
-        <div class="question">
-            <div class="question-title">3、你计划采用的教学形式：</div>
-            <div class="question-sub">(可多选，需与课程主题匹配)</div>
-
-            <div class="options-list">
-               <div class="item">
-                <input type="checkbox" id="type1" name="type" value="讲座式（以知识讲解、案例分享为主）" checked>
-                <label for="type1">讲座式（以知识讲解、案例分享为主）</label>
-               </div>
-             <div class="item">
-                <input type="checkbox" id="type2" name="type" value="工作坊式（以实操演练、动手实践为主）">
-                <label for="type2">工作坊式（以实操演练、动手实践为主）</label>
-            </div>
-            <div class="item">
-                <input type="checkbox" id="type3" name="type" value="案例分析式（以真实案例拆解、解决方案探讨为主）">
-                <label for="type3">案例分析式（以真实案例拆解、解决方案探讨为主）</label>
-            </div>
-            <div class="item">
-                <input type="checkbox" id="type4" name="type" value="<option>演示教学式（以技能演示、步骤拆解为主）</option>">
-                <label for="type4"><option>演示教学式（以技能演示、步骤拆解为主）</option></label>
-            </div>
-            </div>
-                
-            <div class="question-sub" style="margin-top: 10px;">其他（请注明）：</div>
-            <div class="input-wrapper">
-                <input type="text" name="teachingFormOther">
-            </div>
-        </div>
-
-        <!-- 4. 考核方式 -->
-        <div class="question">
-            <div class="question-title">4、你对课程的考核方式设想：</div>
-            <div class="select-wrapper">
-                <select name="assessmentForm" size="4">
-                    <option>无硬性考核，侧重参与体验</option>
-                    <option>实践成果提交</option>
-                    <option>轻量化测试/小测</option>
-                    <option>课堂表现+小任务</option>
-                    <option>自定义考核</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- 5. 需要学校提供的支持 -->
-        <div class="question">
-            <div class="question-title">5、你在开设课程过程中，需要学校提供的具体支持：</div>
-            <div class="question-sub">(分点说明更佳)</div>
-            <textarea name="support"></textarea>
-        </div>
-
-        <!-- 6. 授课能力自评及证明材料 -->
-        <div class="question">
-            <div class="question-title">6、授课能力自评及证明材料：</div>
-            <div class="input-wrapper">
-                <input type="text" name="selfEvaluation">
-            </div>
-            <div class="upload-box">
-                <div class="upload-plus">+</div>
-                <div>上传附件/文件</div>
-            </div>
-        </div>
-    </form>
-
-    <div class="footer">
-        <button type="submit" class="submit-btn">提交</button>
+    <div class="content">
+        <!-- 跳转链接可以按需要修改为相对路径 -->
+        <a href="开课问卷.html">
+            <button type="button" class="btn btn-teacher">我想当老师开课</button>
+        </a>
+        <a href="问卷.html">
+            <button type="button" class="btn btn-student">我想当学生</button>
+        </a>
     </div>
 </div>
 </body>
